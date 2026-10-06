@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Amani Lester, full-stack software engineer and UGA computer science graduate.">
+<title>Amani Lester</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single left-aligned column, ~720px, sections separated by a mono label rail on wide screens */
+:root{
+  --bg:#F2F4F6; --surface:#FFFFFF; --ink:#16202B; --muted:#5B6672; --line:#D9DEE4; --accent:#B0132E; --accent-soft:#F6E3E6;
+  --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11161C; --surface:#18202A; --ink:#E7EBEF; --muted:#97A2AD; --line:#2A3440; --accent:#FF6B7F; --accent-soft:#3A1E25; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11161C; --surface:#18202A; --ink:#E7EBEF; --muted:#97A2AD; --line:#2A3440; --accent:#FF6B7F; --accent-soft:#3A1E25; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{margin:0}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--body);padding-inline:20px;padding-block:0}
+.wrap{max-width:760px;margin:0 auto;padding-block:clamp(40px,8vw,88px) 64px;display:flex;flex-direction:column;gap:clamp(48px,7vw,72px)}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a:hover{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* Hero */
+.eyebrow{font:500 .78rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.dot{width:8px;height:8px;border-radius:50%;background:#2E9E5B;box-shadow:0 0 0 4px color-mix(in srgb,#2E9E5B 20%,transparent)}
+h1{font:700 clamp(2.6rem,9vw,4.6rem)/.98 var(--display);letter-spacing:-.03em;margin:18px 0 20px;text-wrap:balance}
+h1 span{color:var(--accent)}
+.lede{font-size:1.15rem;max-width:58ch;margin:0;color:var(--ink)}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{font:500 .9rem/1 var(--body);padding:11px 16px;border-radius:8px;border:1px solid var(--line);background:var(--surface);text-decoration:none;display:inline-flex;gap:8px;align-items:center;cursor:pointer;color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{border-color:var(--accent)}
+
+/* Sections */
+section{display:grid;grid-template-columns:1fr;gap:18px}
+.label{font:500 .75rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+h2{font:700 1.7rem/1.15 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h3{font:700 1.35rem/1.2 var(--display);letter-spacing:-.01em;margin:0}
+p{margin:0}
+
+/* Projects */
+.project{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,4vw,30px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.project.featured{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.proj-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tag{font:500 .72rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.stack{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
+.stack li{font:400 .78rem/1 var(--mono);padding:6px 9px;border-radius:6px;background:var(--accent-soft);color:var(--ink)}
+.points{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px;color:var(--ink)}
+.points li::marker{color:var(--accent)}
+.proj-links{display:flex;gap:18px;flex-wrap:wrap;font-weight:500;font-size:.95rem}
+.projects{display:flex;flex-direction:column;gap:16px}
+
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.skills div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.skills h4{margin:0;font:500 .75rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.skills p{font-weight:500}
+
+/* Education */
+.edu{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;border-top:1px solid var(--line);padding-top:16px}
+.edu .award{font:500 .78rem/1 var(--mono);color:var(--accent);background:var(--accent-soft);padding:7px 10px;border-radius:6px}
+
+/* Contact */
+.contact{border-top:2px solid var(--ink);padding-top:28px;display:flex;flex-direction:column;gap:16px}
+.email-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.email{font:500 1.05rem/1.2 var(--mono);user-select:all;word-break:break-all}
+footer{font:400 .78rem/1.4 var(--mono);color:var(--muted)}
+
+@media (min-width:880px){
+  section{grid-template-columns:120px 1fr;column-gap:32px}
+  section > .label{grid-row:1 / span 20;padding-top:8px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .btn{transition:background .15s,border-color .15s,color .15s}
+}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <header>
+    <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Open to new grad and junior software engineering roles · Remote or anywhere in the U.S.</div>
+    <h1>Amani Lester<span>.</span></h1>
+    <p class="lede">Full-stack software engineer and University of Georgia computer science graduate. I build web applications end to end, from responsive React and TypeScript interfaces to Java and Spring Boot services and the databases behind them, with a strong foundation in data structures and algorithms.</p>
+    <div class="links">
+      <a class="btn primary" href="https://ulift-theta.vercel.app" target="_blank" rel="noopener">See uLift live ↗</a>
+      <a class="btn" href="https://github.com/amanilester" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <section id="projects">
+    <div class="label">Projects</div>
+    <div class="projects">
+      <article class="project featured">
+        <div class="proj-head">
+          <h3>uLift</h3>
+          <span class="tag">Solo build · Deployed</span>
+        </div>
+        <p>A workout and lifting tracker. You can build training programs, log workouts set by set, and look back through your history. I designed and built the whole thing, from the database to the UI.</p>
+        <ul class="points">
+          <li>Built auth with Supabase, including sign-up, sign-in and UI that changes based on who's logged in</li>
+          <li>Wrote row-level security policies so each user can only read and write their own data</li>
+          <li>Set up client-side routing for programs, workouts, history and profile pages with React Router</li>
+          <li>Styled every page with Tailwind and deployed to Vercel</li>
+        </ul>
+        <ul class="stack" aria-label="Tech stack">
+          <li>React</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li><li>Tailwind CSS</li><li>React Router</li><li>Vercel</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://ulift-theta.vercel.app" target="_blank" rel="noopener">Live app ↗</a>
+          <a href="https://github.com/amanilester" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="proj-head">
+          <h3>DevDogs Optimal Schedule Builder</h3>
+          <span class="tag">Team project · Backend</span>
+        </div>
+        <p>DevDogs is UGA's student developer organization. Our team built a tool that helps students put together the best possible class schedule. I held a leadership role and worked on the backend.</p>
+        <ul class="points">
+          <li>Tested and fixed the backend methods that gather course data from the database</li>
+          <li>Learned Spring Boot on the job to do it, since I hadn't used it before and the backend team was behind</li>
+          <li>Helped get the backend back on schedule</li>
+        </ul>
+        <ul class="stack" aria-label="Tech stack">
+          <li>Java</li><li>Spring Boot</li><li>SQL</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="label">Skills</div>
+    <div class="skills">
+      <div><h4>Languages</h4><p>Java, TypeScript, JavaScript, SQL</p></div>
+      <div><h4>Frontend</h4><p>React, Tailwind CSS, React Router</p></div>
+      <div><h4>Backend &amp; data</h4><p>Spring Boot, Supabase, PostgreSQL</p></div>
+      <div><h4>Fundamentals</h4><p>Data structures and algorithms, Git</p></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="label">Education</div>
+    <div class="edu">
+      <div>
+        <h3>University of Georgia</h3>
+        <p>B.S. in Computer Science</p>
+      </div>
+      <span class="award">Presidential Scholar · 2023</span>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="label">Contact</div>
+    <div class="contact">
+      <h2>Hiring a new grad or junior engineer? I'd like to hear about it.</h2>
+      <div class="email-row">
+        <span class="email" id="email">amanilstr22@gmail.com</span>
+        <button class="btn" id="copy" type="button">Copy email</button>
+      </div>
+      <p>Also on <a href="https://github.com/amanilester" target="_blank" rel="noopener">GitHub</a>.</p>
+    </div>
+  </section>
+
+  <footer>Amani Lester · Software Engineer</footer>
+</main>
+
+<script>
+document.getElementById('copy').addEventListener('click', function(){
+  var btn=this, text=document.getElementById('email').textContent;
+  function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email'},1600);}
+  function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';}
+  try{navigator.clipboard.writeText(text).then(done,fallback);}catch(e){fallback();}
+});
+</script>
+
+</body>
+</html>
