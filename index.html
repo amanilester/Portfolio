@@ -79,7 +79,8 @@ footer{font:400 .78rem/1.4 var(--mono);color:var(--muted)}
 
 @media (min-width:880px){
   section{grid-template-columns:120px 1fr;column-gap:32px}
-  section > .label{grid-row:1 / span 20;padding-top:8px}
+  section > .label{grid-column:1;grid-row:1;padding-top:8px}
+  section > :not(.label){grid-column:2;min-width:0}
 }
 @media (prefers-reduced-motion:no-preference){
   .btn{transition:background .15s,border-color .15s,color .15s}
@@ -120,7 +121,7 @@ footer{font:400 .78rem/1.4 var(--mono);color:var(--muted)}
         </ul>
         <div class="proj-links">
           <a href="https://ulift-theta.vercel.app" target="_blank" rel="noopener">Live app ↗</a>
-          <a href="https://github.com/amanilester/FitnessApp" target="_blank" rel="noopener">Code ↗</a>
+          <a href="https://github.com/amanilester" target="_blank" rel="noopener">Code ↗</a>
         </div>
       </article>
 
